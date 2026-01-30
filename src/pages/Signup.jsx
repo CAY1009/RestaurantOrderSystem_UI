@@ -2,15 +2,11 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 
 function Signup() {
-    /*const [post, getPost] = {
-        email: "",
-        password: "",
-        fullName: "",
-        phoneNum: "",
-    }*/
+
     const generateId = () => {
         Math.random();
     }
+    
     const [post, setPost] = useState({
         id: '12',
         email: '',

@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 function Header(){
-   
+
     return (
         <header>
             <div className="header">
@@ -10,7 +8,7 @@ function Header(){
                 <a href="/">Home</a>
                 <a href="#">Order</a>
                 <a href="/member">Member</a>
-                <a href="#">Contact</a>
+                <a href="#">Contact Us</a>
             </div>
         </header>
     );

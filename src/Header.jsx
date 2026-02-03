@@ -10,7 +10,7 @@ function Header(){
                 <a href="/">Home</a>
                 <a href="#">Order</a>
                 <a href="/member">Member</a>
-                <a href="#">Cart: </a>
+                <a href="#">Contact</a>
             </div>
         </header>
     );

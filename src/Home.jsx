@@ -13,7 +13,7 @@ function Food(){
         };
 
     const foods = [
-        {id:1, name: "food1", description: "description1 has too much sugar has too much sugar has too much sugar has too much sugar ", price: 7.99, image:hamburger},
+        {id:1, name: "food1", description: "description1 has too much sugar has too much sugar has too much sugar ", price: 7.99, image:hamburger},
         {id:2, name: "food2", description: "description2 has too much sugar has too much sugar has too much sugar", price: 12.99, image:pizza},
         {id:3, name: "food3", description: "description3 has too much sugar has too much sugar has too much sugar", price: 5.99, image:frenchfries},
         {id:4, name: "food4", description: "description4 has too much sugar has too much sugar has too much sugar", price: 8.99, image:burrito},
@@ -39,6 +39,11 @@ function Food(){
     
     return (
         <body>
+            <br></br>
+            <div>
+                <button className='view-cart-button'>View Cart: {cartCount}</button>
+                <button className='view-cart-button'>Checkout</button>
+            </div>
             <br></br>
             <div className='food-menu'>
                 <div className='food-card'>{listFoods}</div>

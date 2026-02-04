@@ -1,23 +1,35 @@
 
 function Member(){
+    const loginEventHandler = (e) => {
+        e.preventDefault();
+        alert("Login successful!");
+        // will check credentials from Database here
+        /* 
+            if match {
+            Match found, redirect to Home page
+            window.location.href = '/home';
+            }
+            else {
+            show ("Invalid username or password.");
+            }
+        */
+    };
 
     return(
         <div>
-            <br />
-            <h2 className="login">Login</h2>
-            <div>
-                <label className="login" htmlFor="username">Email: </label>
-                <input className="login" type="text" id="username" name="username" />
-            </div>
-            <div>
-                <label className="login" htmlFor="password">Password: </label>
-                <input className="login" type="password" id="password" name="password" />
-            </div>
-            <div>
-                <button className="login-button" type="button" onClick={() => window.location.href = '/signup'}>Sign Up</button>
-                <button className="login-button" type="submit">Login</button>
-            </div>
-            <br />
+            <form onSubmit={loginEventHandler} className="signup-form">
+                <h2 className="login-title">Login</h2>
+                <div>
+                    <input className="login-placeholder" placeholder="Email" type="text" id="username" name="username" />
+                </div>
+                <div>
+                    <input className="login-placeholder" placeholder="Password" type="password" id="password" name="password" />
+                </div>
+                <div>
+                    <button className="login-button" type="button" onClick={() => window.location.href = '/signup'}>Sign Up</button>
+                    <button className="login-button" type="submit">Login</button>
+                </div>
+            </form>
         </div>
     );
 }

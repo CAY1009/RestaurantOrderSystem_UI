@@ -31,15 +31,14 @@ function Food(){
             <p>Description: {food.description}</p>
             <p>Price: {food.price}</p>
                 <div>
-                    Amount: <input className='order-amount-selection' type='number' min='0'></input>
-                    <button onClick={AddtoCart}>Add to Cart</button>
+                    <button onClick={() => {AddtoCart()}}>Add to Cart</button>
+                    <span className="order-amount-selection">{cartCount}</span>
                 </div>
         </div>
     );
     
     return (
         <body>
-            <br></br>
             <div>
                 <button className='view-cart-button'>View Cart: {cartCount}</button>
                 <button className='view-cart-button'>Checkout</button>
@@ -48,7 +47,6 @@ function Food(){
             <div className='food-menu'>
                 <div className='food-card'>{listFoods}</div>
             </div>
-            <br></br>
         </body>
 
     );

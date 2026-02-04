@@ -10,6 +10,7 @@ function Header(){
                 <a href="/member">Member</a>
                 <a href="#">Contact Us</a>
             </div>
+            <br />
         </header>
     );
 }

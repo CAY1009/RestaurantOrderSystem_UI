@@ -84,6 +84,21 @@ a{
   border-radius: 25px;
 }
 
+.add-to-cart-button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: darkcyan;
+  color: aqua;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 10px;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .food-card{
   display: flex;
   flex-wrap: wrap;
@@ -104,15 +119,16 @@ a{
 }
 
 .order-amount-selection{
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background-color: darkcyan;
   color: aqua;
   font-size: 20px;
   font-weight: bold;
   display:inline-flex;
-  margin-left: 50px;
+  margin-left: 20px;
+  margin-right: 10px;
   align-items: center;
   justify-content: center;
 }

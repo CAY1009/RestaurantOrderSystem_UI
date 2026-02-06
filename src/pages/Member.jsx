@@ -3,6 +3,12 @@ function Member(){
     const loginEventHandler = (e) => {
         e.preventDefault();
         alert("Login successful!");
+        // username 123456 to go to Admin page
+        if (document.getElementById("username").value === "123456") {
+            window.location.href = '/admin';
+        } else {
+            window.location.href = '/customer';
+        }
         // will check credentials from Database here
         /* 
             if match {

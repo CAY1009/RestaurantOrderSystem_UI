@@ -6,8 +6,7 @@ import Footer from './Footer.jsx';
 import Member from './pages/Member.jsx';
 import Signup from './pages/Signup.jsx';
 import CartPage from './CartPage.jsx';
-
-export const CartContext = createContext();
+import MemberAdmin from './MemberAdmin.jsx';
 
 function App() {
 
@@ -23,6 +22,8 @@ function App() {
         <Route path='/member' element={<Member />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/cart' element={<CartPage cart={cart}/>}></Route>
+        <Route path='/admin' element={<MemberAdmin />}></Route>
+        <Route path='/customer' element={<Signup />}></Route>
       </Routes>
       <Footer />
     </>

@@ -108,7 +108,7 @@ a{
   gap: 20px;
 }
 
-.food-card-content{
+.food-card-container{
   flex-wrap: flex;
   justify-content: center;
   padding: 20px;
@@ -116,6 +116,7 @@ a{
   border-color:darkcyan;
   border-radius: 25px;
   width: 200px;
+  text-wrap: wrap;
 }
 
 .order-amount-selection{
@@ -165,7 +166,12 @@ a{
   font-weight: bold;
   border-radius: 10px;
   padding: 5px;
-  margin-left: 10px;
+  margin-left: 30px;
+}
+
+.view-cart-button:hover {
+  background-color: aqua;
+  color: darkcyan;
 }
 
 .signup-form{
@@ -196,4 +202,24 @@ a{
   padding-left: 30px;
   border-radius: 5px;
   border: 1px solid darkcyan;
+}
+
+.view-cart-title{
+  font-size: 30px;
+  color: darkcyan;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.view-cart{
+  padding-left: 30px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.view-cart img{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 15px;
 }

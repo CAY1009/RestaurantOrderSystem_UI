@@ -8,7 +8,7 @@ function Header(){
                 <a href="/">Home</a>
                 <a href="#">Order</a>
                 <a href="/member">Member</a>
-                <a href="#">Contact Us</a>
+                <a href="/contact">Contact</a>
             </div>
             <br />
         </header>

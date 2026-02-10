@@ -36,6 +36,7 @@ function Member(){
                     <button className="login-button" type="submit">Login</button>
                 </div>
             </form>
+        <p>Use username: 123456 / password 123 to access Food manage page. Will delete this later</p>
         </div>
     );
 }

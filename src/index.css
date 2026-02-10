@@ -208,7 +208,7 @@ a{
   font-size: 30px;
   color: darkcyan;
   font-weight: bold;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .view-cart{
@@ -222,4 +222,64 @@ a{
   height: 75px;
   object-fit: cover;
   border-radius: 15px;
+}
+
+.view-cart-pay-button{
+  font-size: 20px;
+  background-color: darkcyan;
+  color: aqua;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 100px;
+}
+
+.view-cart-pay-button:hover {
+  background-color: aqua;
+  color: darkcyan;
+}
+
+.food-card-manage{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-style: solid;
+  border-color:darkcyan;
+  border-radius: 25px;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.food-card-manage p{
+  font-size: 15px;
+  font-weight: bold;
+  margin: 20px;
+  
+}
+
+.food-card-manage img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.food-card-manage-button{
+  font-size: 20px;
+  background-color: darkcyan;
+  color: aqua;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.food-card-manage-button:hover {
+  background-color: aqua;
+  color: darkcyan;
 }

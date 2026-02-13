@@ -2,10 +2,10 @@
 function Member(){
     const loginEventHandler = (e) => {
         e.preventDefault();
-        alert("Login successful!");
         // username 123456 to go to Admin page
         if (document.getElementById("username").value === "123456") {
-            window.location.href = '/admin';
+            window.location.href = '/admin';            
+            alert("Login successful!");
         } else {
             window.location.href = '/customer';
         }

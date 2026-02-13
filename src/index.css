@@ -283,3 +283,18 @@ a{
   background-color: aqua;
   color: darkcyan;
 }
+
+.admin-button{
+  font-size: 20px;
+  background-color: darkcyan;
+  color: aqua;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 30px;
+}
+
+.admin-button:hover{
+  background-color: aqua;
+  color: darkcyan;
+}

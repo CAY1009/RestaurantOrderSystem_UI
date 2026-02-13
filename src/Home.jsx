@@ -3,7 +3,7 @@ import CartPage from './CartPage.jsx';
 import { Link, Route, Routes } from 'react-router';
 import { foodItems } from './FoodItems.js';
 
-function Food({ cart, setCart, totalCount }) {
+function Home({ cart, setCart, totalCount }) {
 
   const AddCart = (id) => {
     setCart(prev => ({
@@ -29,8 +29,8 @@ function Food({ cart, setCart, totalCount }) {
       <p>Price: {foodItem.price}</p>
       <div>
         <button className='add-to-cart-button' onClick={() => { AddCart(foodItem.id) }}>+</button>
-        {cart[foodItem.id] !== undefined ? (<span className="order-amount-selection">{cart[foodItem.id]}</span>) : ('')}
-        {cart[foodItem.id] !== undefined ? (<button className='add-to-cart-button' onClick={() => { RemoveCart(foodItem.id) }}>-</button>) : ('')}
+        {cart[foodItem.id] > 0 ? (<span className="order-amount-selection">{cart[foodItem.id]}</span>) : ('')}
+        {cart[foodItem.id] > 0 ? (<button className='add-to-cart-button' onClick={() => { RemoveCart(foodItem.id) }}>-</button>) : ('')}
       </div>
     </div>
   );
@@ -51,4 +51,4 @@ function Food({ cart, setCart, totalCount }) {
   );
 }
 
-export default Food
+export default Home

@@ -11,6 +11,7 @@ import Order from './Order.jsx';
 import MemberAdminFood from './MemberAdminFood.jsx';
 import MemberAdminCustomer from './MemberAdminCustomer.jsx';
 import MemberAdminEmployee from './MemberAdminEmployee.jsx';
+import EmployeeEdit from './EmployeeEdit.jsx';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/adminFood' element={<MemberAdminFood/>}></Route>
         <Route path='/adminCustomer' element={<MemberAdminCustomer/>}></Route>
         <Route path='/adminEmployee' element={<MemberAdminEmployee/>}></Route>
+        <Route path='/employeeEdit' element={<EmployeeEdit/>}></Route>
       </Routes>
       <Footer />
     </>

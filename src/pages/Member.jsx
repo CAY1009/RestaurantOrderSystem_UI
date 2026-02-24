@@ -7,7 +7,7 @@ function Member(){
             window.location.href = '/admin';            
             alert("Login successful!");
         } else {
-            window.location.href = '/customer';
+            window.location.href = '/';
         }
         // will check credentials from Database here
         /* 

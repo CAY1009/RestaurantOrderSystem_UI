@@ -23,7 +23,7 @@ button {
   border: 1px solid transparent;
   font-weight: 500;
   font-family: inherit;
-  background-color:darkgrey;
+  background-color: darkgrey;
   color: black;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -33,6 +33,7 @@ button:hover {
   background-color: darkcyan;
   color: aqua;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -45,46 +46,46 @@ button:focus-visible {
   }
 }
 
-.header{
-    background-color:darkcyan;
-    padding-left: 30px;
-    padding-bottom: 15px;
-    color: aqua;
+.header {
+  background-color: darkcyan;
+  padding-left: 30px;
+  padding-bottom: 15px;
+  color: aqua;
 }
 
-.footer{
-    background-color:darkcyan;
-    padding-left: 30px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    color: aqua;
-    font-size: 20px;
+.footer {
+  background-color: darkcyan;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: aqua;
+  font-size: 20px;
 }
 
-a{
-    color: aqua;
-    padding-left: 30px;
-    font-size: 20px;
-    text-decoration: none;
+a {
+  color: aqua;
+  padding-left: 30px;
+  font-size: 20px;
+  text-decoration: none;
 }
 
-.food-menu{
+.food-menu {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: 20px;
   gap: 20px;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
 }
 
-.food-card img{
+.food-card img {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 25px;
 }
 
-.add-to-cart-button{
+.add-to-cart-button {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -94,12 +95,12 @@ a{
   font-weight: bold;
   margin-left: 20px;
   margin-right: 10px;
-  display:inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.food-card{
+.food-card {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -108,18 +109,18 @@ a{
   gap: 20px;
 }
 
-.food-card-container{
+.food-card-container {
   flex-wrap: flex;
   justify-content: center;
   padding: 20px;
   border-style: solid;
-  border-color:darkcyan;
+  border-color: darkcyan;
   border-radius: 25px;
   width: 200px;
   text-wrap: wrap;
 }
 
-.order-amount-selection{
+.order-amount-selection {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -127,24 +128,24 @@ a{
   color: aqua;
   font-size: 20px;
   font-weight: bold;
-  display:inline-flex;
+  display: inline-flex;
   margin-left: 20px;
   margin-right: 10px;
   align-items: center;
   justify-content: center;
 }
 
-#food-description{
+#food-description {
   text-align: left;
 }
 
-.login-title{
+.login-title {
   font-size: 20px;
   color: darkcyan;
   font-weight: bold;
 }
 
-.login-button{
+.login-button {
   font-size: 20px;
   background-color: darkcyan;
   color: aqua;
@@ -159,7 +160,7 @@ a{
   color: darkcyan;
 }
 
-.view-cart-button{
+.view-cart-button {
   font-size: 20px;
   background-color: darkcyan;
   color: aqua;
@@ -174,19 +175,19 @@ a{
   color: darkcyan;
 }
 
-.signup-form{
+.signup-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
   border: 1px solid darkcyan;
   border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
   background-color: #f9f9f9;
-  align-items: center;
 }
 
-.signup-placeholder{
+.signup-placeholder {
   font-size: 15px;
   margin: 10px;
   padding: 5px;
@@ -195,7 +196,7 @@ a{
   border: 1px solid darkcyan;
 }
 
-.login-placeholder{
+.login-placeholder {
   font-size: 15px;
   margin: 10px;
   padding: 5px;
@@ -204,27 +205,27 @@ a{
   border: 1px solid darkcyan;
 }
 
-.view-cart-title{
+.view-cart-title {
   font-size: 30px;
   color: darkcyan;
   font-weight: bold;
   padding-left: 50px;
 }
 
-.view-cart{
+.view-cart {
   padding-left: 30px;
   flex-direction: column;
   padding: 20px;
 }
 
-.view-cart img{
+.view-cart img {
   width: 75px;
   height: 75px;
   object-fit: cover;
   border-radius: 15px;
 }
 
-.view-cart-pay-button{
+.view-cart-pay-button {
   font-size: 20px;
   background-color: darkcyan;
   color: aqua;
@@ -241,13 +242,13 @@ a{
   color: darkcyan;
 }
 
-.food-card-manage{
+.food-card-manage {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
   border-style: solid;
-  border-color:darkcyan;
+  border-color: darkcyan;
   border-radius: 25px;
   padding: 15px;
   max-width: 1000px;
@@ -255,21 +256,21 @@ a{
   margin-bottom: 20px;
 }
 
-.food-card-manage p{
+.food-card-manage p {
   font-size: 15px;
   font-weight: bold;
   margin: 20px;
-  
+
 }
 
-.food-card-manage img{
+.food-card-manage img {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 15px;
 }
 
-.food-card-manage-button{
+.food-card-manage-button {
   font-size: 20px;
   background-color: darkcyan;
   color: aqua;
@@ -284,25 +285,97 @@ a{
   color: darkcyan;
 }
 
-.admin-button{
+.admin-nav {
   font-size: 20px;
   background-color: darkcyan;
   color: aqua;
   font-weight: bold;
   border-radius: 10px;
   padding: 5px;
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
-.admin-button:hover{
+.admin-nav:hover {
   background-color: aqua;
   color: darkcyan;
 }
 
-.admin-sub-title{
-  margin-left: 100px;
+.admin-nav-food {
+  font-size: 20px;
+  color: darkcyan;
+  border: 1px solid darkcyan;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 35px;
 }
 
-.employee-table{
-  
+.admin-nav-customer {
+  font-size: 20px;
+  color: darkcyan;
+  border: 1px solid darkcyan;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 35px;
+}
+
+.admin-nav-employee {
+  font-size: 20px;
+  color: darkcyan;
+  border: 1px solid darkcyan;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 35px;
+}
+
+.action-button {
+  font-size: 15px;
+  background-color: darkcyan;
+  color: aqua;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.action-button:hover {
+  background-color: aqua;
+  color: darkcyan;
+}
+
+.action-button-add {
+  font-size: 15px;
+  background-color: darkcyan;
+  color: aqua;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.action-button-delete {
+  font-size: 15px;
+  background-color: rgb(255, 88, 88);
+  color: rgb(114, 26, 26);
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.action-button-delete:hover {
+  background-color: rgb(156, 36, 36);
+  color: rgb(255, 88, 88);
+}
+
+.employee-table {
+  flex-direction: column;
+  margin: 25px;
+  margin-top: 0px;
+  padding: 0.5rem;
+}
+
+.search-box {
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
 }

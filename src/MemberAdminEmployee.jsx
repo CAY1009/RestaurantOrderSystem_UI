@@ -5,8 +5,7 @@ import axios from "axios";
 
 function MemberAdminEmployee() {
 
-    //const apiGet = 'https://jsonplaceholder.typicode.com/users';
-    const apiLink = "http://localhost:5432";
+    const apiLink = 'http://localhost:3000';
 
     const [employees, setEmployees] = useState([]);
     const [filterRecords, setFilterRecords] = useState([]);
@@ -15,9 +14,9 @@ function MemberAdminEmployee() {
         const getEmployees = async () => {
             try{
                 const res = await axios.get(`${apiLink}/api/users`)
-                console.log(res.data)
-                setEmployees(res.data)
-                setFilterRecords(res.data)
+                console.log(res.data.data)
+                setEmployees(res.data.data)
+                setFilterRecords(res.data.data)
             }
             catch(error){
                 console.log(error.message)
@@ -26,26 +25,21 @@ function MemberAdminEmployee() {
         getEmployees();
     }, [])
 
-    function handleDelete() {
-        const deleteConfirm = confirm('Are you sure?')
-        {deleteConfirm ? alert("Deleted") : ("")}
-    };
-
     function handleFilter(e) {
         let query = e.target.value;
-        const newRecords = employees.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+        const newRecords = employees.filter(item => item.fullname.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
         setFilterRecords(newRecords)
     }
 
     const columns = [
         {
             name: 'ID',
-            selector: row => row.id,
+            selector: row => row.userid,
             sortable: true,
         },
         {
             name: 'Name',
-            selector: row => row.name,
+            selector: row => row.fullname,
             sortable: true,
         },
         {
@@ -57,11 +51,18 @@ function MemberAdminEmployee() {
             selector: row => row.phone,
         },
         {
+            name: 'Role',
+            selector: row => row.userrole,
+        },
+        {
+            name: 'Created At',
+            selector: row => row.createdat.substring(0,10),
+        },
+        {
             name: 'Action',
-            selector: () => (
+            selector: (row) => (
                 <div>
-                    <button className='action-button'>Edit</button>
-                    <button className='action-button-delete' onClick={handleDelete}>Delete</button>
+                    <Link to={`/employeeEdit/${row.userid}`} className="action-button">Edit</Link>
                 </div>
             )
         }
@@ -90,6 +91,7 @@ function MemberAdminEmployee() {
             <div className="employee-table">
                 <div>
                     <span><input className="search-box" type='text' placeholder="Search by Name" onChange={handleFilter}></input></span>
+                    <Link to='./addEmployee' className="action-button-add">Add</Link>
                 </div>
                 <DataTable
                     columns={columns}

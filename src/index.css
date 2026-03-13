@@ -93,9 +93,7 @@ a {
   color: aqua;
   font-size: 15px;
   font-weight: bold;
-  margin-left: 20px;
-  margin-right: 10px;
-  display: inline-flex;
+  margin: 25px;
   align-items: center;
   justify-content: center;
 }
@@ -110,13 +108,13 @@ a {
 }
 
 .food-card-container {
-  flex-wrap: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
   border-style: solid;
   border-color: darkcyan;
   border-radius: 25px;
-  width: 200px;
+  max-width: 280px;
   text-wrap: wrap;
 }
 
@@ -188,12 +186,30 @@ a {
 }
 
 .signup-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 15px;
   margin: 10px;
   padding: 5px;
   padding-left: 30px;
   border-radius: 5px;
   border: 1px solid darkcyan;
+}
+
+.signup-form textarea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  margin: 10px;
+  padding: 5px;
+  padding-left: 30px;
+  border-radius: 5px;
+  border: 1px solid darkcyan;
+  height: 100px;
+  resize: none;
+  font-family: sans-serif;
 }
 
 .login-placeholder {
@@ -242,7 +258,7 @@ a {
   color: darkcyan;
 }
 
-.food-card-manage {
+.view-cart-food-card {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -251,23 +267,59 @@ a {
   border-color: darkcyan;
   border-radius: 25px;
   padding: 15px;
-  max-width: 1000px;
+  max-width: 500px;
   margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.view-cart-food-card p {
+  font-size: 15px;
+  margin: 20px;
+}
+
+.view-cart-food-card img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.food-card-manage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-style: solid;
+  border-color: darkcyan;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 0 auto;
+  max-width: 800px;
   margin-bottom: 20px;
 }
 
 .food-card-manage p {
   font-size: 15px;
-  font-weight: bold;
-  margin: 20px;
+  margin: 15px;
 
 }
 
 .food-card-manage img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 15px;
+  margin: 5px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.food-photo-and-button {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .food-card-manage-button {
@@ -331,12 +383,11 @@ a {
 }
 
 .action-button {
-  font-size: 15px;
+  font-size: 20px;
   background-color: darkcyan;
   color: aqua;
   border-radius: 10px;
   padding: 5px;
-  margin-right: 15px;
 }
 
 .action-button:hover {
@@ -345,21 +396,24 @@ a {
 }
 
 .action-button-add {
-  font-size: 15px;
+  float: right;
+  font-size: 20px;
   background-color: darkcyan;
   color: aqua;
   border-radius: 10px;
   padding: 5px;
-  margin-right: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 .action-button-delete {
-  font-size: 15px;
+  font-size: 20px;
   background-color: rgb(255, 88, 88);
   color: rgb(114, 26, 26);
+  font-weight: bold;
   border-radius: 10px;
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .action-button-delete:hover {
@@ -368,6 +422,8 @@ a {
 }
 
 .employee-table {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   margin: 25px;
   margin-top: 0px;

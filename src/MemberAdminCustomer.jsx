@@ -5,46 +5,52 @@ import axios from "axios";
 
 function MemberAdminCustomer() {
 
-    const apiLink = "http://localhost:5000";
+    const apiLink = 'http://localhost:3000';
 
-    const [employees, setEmployees] = useState([]);
+    const [customers, setCustomers] = useState([]);
     const [filterRecords, setFilterRecords] = useState([]);
 
     useEffect(() => {
-        const getEmployees = async () => {
+        const getCustomers = async () => {
             try {
                 const res = await axios.get(`${apiLink}/api/customers`)
                 console.log(res.data)
-                setEmployees(res.data)
-                setFilterRecords(res.data)
+                setCustomers(res.data.data)
+                setFilterRecords(res.data.data)
             }
             catch (error) {
                 console.log(error.message)
             }
         }
-        getEmployees();
-    }, []);
+        getCustomers();
+    }, [])
 
     function handleDelete() {
         const deleteConfirm = confirm('Are you sure?')
-        { deleteConfirm ? alert("Deleted") : ("") }
+        {
+            deleteConfirm ?
+                alert("Deleted")
+
+
+                : ("")
+        }
     };
 
     function handleFilter(e) {
         let query = e.target.value;
-        const newRecords = employees.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+        const newRecords = customers.filter(item => item.fullname.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
         setFilterRecords(newRecords)
     }
 
     const columns = [
         {
             name: 'ID',
-            selector: row => row.id,
+            selector: row => row.customerid,
             sortable: true,
         },
         {
             name: 'Name',
-            selector: row => row.name,
+            selector: row => row.fullname,
             sortable: true,
         },
         {
@@ -56,11 +62,14 @@ function MemberAdminCustomer() {
             selector: row => row.phone,
         },
         {
+            name: 'Created By',
+            selector: row => row.createdby,
+        },
+        {
             name: 'Action',
-            selector: () => (
+            selector: (row) => (
                 <div>
-                    <button className='action-button'>Edit</button>
-                    <button className='action-button-delete' onClick={handleDelete}>Delete</button>
+                    <Link to={`/customerEdit/${row.customerid}`} className="action-button">Edit</Link>
                 </div>
             )
         }

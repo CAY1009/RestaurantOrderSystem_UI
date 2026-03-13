@@ -1,24 +1,44 @@
-import React, { useContext } from 'react';
-import { foodItems } from './FoodItems.js';
+import React, { useContext} from 'react';
+import { useState, useEffect } from 'react';
+import { foodImages } from './FoodImages.js';
+import axios from 'axios';
 
 function CartPage({ cart }) {
+
+  const [foods, setFoods] = useState([]);
+  
+    const apiLink = 'http://localhost:3000';
+
+    useEffect(() => {
+      const getFoods = async () => {
+        try {
+          const res = await axios.get(`${apiLink}/api/menu-items`);
+          console.log(res.data.data)
+          setFoods(res.data.data)
+        }
+        catch (error) {
+          console.log(error.message)
+        }
+      }
+      getFoods();
+    }, [])
+
   const totalPrice = Object.entries(cart).reduce((sum, [foodId, quantity]) => {
-    const foodItem = foodItems.find(item => item.id === parseInt(foodId));
+    const foodItem = foods.find(item => item.itemid === parseInt(foodId));
     return sum + (foodItem ? foodItem.price * quantity : 0);
   }, 0);
-  const foodAdded = foodItems.map(foodItem => {
-    if (cart[foodItem.id] !== undefined) {
+  
+  const foodAdded = foods.map(foodItem => {
+    if (cart[foodItem.itemid] !== undefined) {
       return (
-        <ul>
-          <div className='food-card-manage'>
-            <div><img key={foodItem.id} src={foodItem.image} alt={foodItem.name}></img></div>
+          <div key={foodItem.itemid} className='view-cart-food-card'>
+            <img src={foodImages[foodItem.itemid]} alt={foodItem.itemname}></img>
             <div>
-              <p>{foodItem.name}</p>
-              {cart[foodItem.id]} x {foodItem.price}
+              <p>{foodItem.itemname}</p>
+              <p>{cart[foodItem.itemid]} x ${foodItem.price}</p>
             </div>
-            <div>{cart[foodItem.id] * foodItem.price}</div>
+            <div><p>{cart[foodItem.itemid] * foodItem.price}</p></div>
           </div>
-        </ul>
       );
     }
   }

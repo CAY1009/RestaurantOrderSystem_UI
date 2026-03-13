@@ -1,29 +1,50 @@
-import { foodItems } from './FoodItems.js';
+import { foodImages } from './FoodImages.js';
 import { Link } from 'react-router';
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 function MemberAdminFood() {
+  const apiLink = 'http://localhost:3000';
+
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    const getFoods = async () => {
+      try {
+        const res = await axios.get(`${apiLink}/api/menu-items`);
+        console.log(res.data.data)
+        setFoods(res.data.data)
+      }
+      catch (error) {
+        console.log(error.message)
+      }
+    }
+    getFoods();
+  }, [])
+
   const handleEdit = () => {
-    alert("Edit food item");
+    <Link to={`/foodEdit/${itemid}`}></Link>
   };
 
   const handleDelete = () => {
     const deleteConfirm = confirm("Delete Food! Are you sure?");
-    if(deleteConfirm == true){
+    if (deleteConfirm == true) {
       // Delete
 
       alert("Deleted ");
     }
   };
 
-  const AdminFoodList = foodItems.map(foodItem => (
-    <div key={foodItem.id} className='food-card-manage'>
-      <img src={foodItem.image} alt={foodItem.name}></img>
-      <div>
-        <button className='action-button' onClick={handleEdit}>Edit</button>
-        <button className='action-button-delete' onClick={handleDelete}>Delete</button>
+  const AdminFoodList = foods.map(foodItem => (
+    <div key={foodItem.itemid} className='food-card-manage'>
+      <div className='food-photo-and-button'>
+        <img src={foodImages[foodItem.itemid]} alt={foodItem.name}></img>
+        <div>
+          <Link to={`/foodEdit/${foodItem.itemid}`} className='action-button'>Edit</Link>
+        </div>
       </div>
       <div className='food-card-manage-content'>
-        <p>{foodItem.name}</p>
+        <p>{foodItem.itemname}</p>
         <p>Description: {foodItem.description}</p>
         <p>Price: {foodItem.price}</p>
       </div>
@@ -32,19 +53,19 @@ function MemberAdminFood() {
 
   return (
     <>
-    <div>
       <div>
-        <h1 className='view-cart-title'>Admin</h1>
-        <br/>
+        <div>
+          <h1 className='view-cart-title'>Admin</h1>
+          <br />
           <Link to="/adminFood" className='admin-nav-food'>Food Menu</Link>
           <Link to="/adminCustomer" className='admin-nav'>Customers</Link>
           <Link to="/adminEmployee" className='admin-nav'>Employees</Link>
+        </div>
+        <br />
+        {AdminFoodList}
       </div>
-      <br/>
-      {AdminFoodList}
-    </div>
     </>
-    
+
   );
 }
 

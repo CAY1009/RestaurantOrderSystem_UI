@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartPage from './CartPage.jsx';
 import { Link, Route, Routes } from 'react-router';
 import { foodItems } from './FoodItems.js';
+import axios from 'axios';
 
 function Home({ cart, setCart, totalCount }) {
 
+  const apiLink = "http://localhost:5432"
+  
   const AddCart = (id) => {
     setCart(prev => ({
       ...prev,
@@ -34,20 +37,36 @@ function Home({ cart, setCart, totalCount }) {
       </div>
     </div>
   );
+  
+  useEffect(() => {
+    const getLink = async () => {
+      try {
+        const res = await axios.get(`${apiLink}/`)
+        const mess = await res.data;
+        console.log(mess)
+      }
+      catch (error) {
+        console.log(error.message)
+      }
+    };
+    getLink();
+  }, [])
 
   return (
-    <body>
-      <div>
+    <>
+      <body>
+        <div>
           <Link to="/cart" className='view-cart-button'>
-          View Cart {totalCount > 0 && `(${totalCount})`}
+            View Cart {totalCount > 0 && `(${totalCount})`}
           </Link>
           <button className='view-cart-button'>Checkout</button>
-      </div>
-      <br></br>
-      <div className='food-menu'>
-        <div className='food-card'>{itemList}</div>
-      </div>
-    </body>
+        </div>
+        <br></br>
+        <div className='food-menu'>
+          <div className='food-card'>{itemList}</div>
+        </div>
+      </body>
+    </>
   );
 }
 

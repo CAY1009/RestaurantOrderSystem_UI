@@ -5,7 +5,8 @@ import axios from "axios";
 
 function MemberAdminEmployee() {
 
-    const apiGet = 'https://jsonplaceholder.typicode.com/users';
+    //const apiGet = 'https://jsonplaceholder.typicode.com/users';
+    const apiLink = "http://localhost:5432";
 
     const [employees, setEmployees] = useState([]);
     const [filterRecords, setFilterRecords] = useState([]);
@@ -13,7 +14,8 @@ function MemberAdminEmployee() {
     useEffect(() => {
         const getEmployees = async () => {
             try{
-                const res = await axios.get(apiGet)
+                const res = await axios.get(`${apiLink}/api/users`)
+                console.log(res.data)
                 setEmployees(res.data)
                 setFilterRecords(res.data)
             }
@@ -88,7 +90,6 @@ function MemberAdminEmployee() {
             <div className="employee-table">
                 <div>
                     <span><input className="search-box" type='text' placeholder="Search by Name" onChange={handleFilter}></input></span>
-                    <span><button>Search</button></span>
                 </div>
                 <DataTable
                     columns={columns}

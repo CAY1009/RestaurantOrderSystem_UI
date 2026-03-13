@@ -3,23 +3,41 @@ import axios from 'axios';
 
 function Signup() {
 
+    const apiLink = "http://localhost:5432";
+
     const generateId = () => {
         Math.random();
     }
-    
+
+    const [shouldRunEffect, setShouldRunEffect] = useState(false);
+
     const [post, setPost] = useState({
-        id: '12',
-        email: '',
-        password: '',
         fullName: '',
+        email: '',
         phoneNum: '',
     });
-
-    const apiPost = 'https://jsonplaceholder.typicode.com/posts';
 
     const handleChange = (event) => {
         setPost({ ...post, [event.target.name]: [event.target.value] })
     }
+
+    useEffect(() => {
+        if (shouldRunEffect) {
+            const insertCustomer = async () => {
+                try {
+                    const res = await axios.post(`${apiLink}/api/users`, post)
+                    console.log(res.data);
+                    alert("Registration successful!");
+                    window.location.href = '/';
+                }
+                catch (err) {
+                    console.log(err.message);
+                }
+            }
+            insertCustomer();
+            setShouldRunEffect(false);
+        }
+    }, [shouldRunEffect]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,21 +45,8 @@ function Signup() {
             alert("Passwords do not match.");
         }
         else {
-            console.log(post)
-            useEffect(() => {
-                const insertCustomer = async () => {
-                    try {
-                        const res = await axios.post(apiPost, { post })
-                        console.log(res);
-                        alert("Registration successful!");
-                        window.location.href = '/';
-                    }
-                    catch (error) {
-                        console.log(error.message);
-                    }
-                }
-                insertCustomer();
-            }, []);
+            console.log(post);
+            setShouldRunEffect(true);
         }
     };
 

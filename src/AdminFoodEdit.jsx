@@ -27,7 +27,7 @@ function AdminFoodEdit() {
     const navigate = useNavigate();
 
     function handleSubmit(event) {
-        event.preventdefault();
+        event.preventDefault();
         const confirmEdit = confirm("UPDATE FOOD: Are you sure?")
         if (confirmEdit) {
             axios.put(`${apiLink}/api/menu-items/${id}`, foods)
@@ -41,6 +41,20 @@ function AdminFoodEdit() {
         }
     };
 
+    function handleDelete(event){
+        event.preventDefault();
+        const deleteConfirm = confirm("DELETE FOOD: Are you sure?")
+        if (deleteConfirm) {
+            axios.delete(`${apiLink}/api/menu-items/${id}`,foods)
+            .then(res => {
+                alert("DELETED FOOD !")
+                navigate('/adminFood')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+        }
+    }
     return (
         <div>
             <form onSubmit={handleSubmit} className="signup-form">
@@ -62,6 +76,14 @@ function AdminFoodEdit() {
                     <input className="signup-placeholder" type="text" name="price" value={foods.price} onChange={e => setFoods({ ...foods, price: e.target.value })} />
                 </div>
                 <div>
+                    <label>Status: </label>
+                    <select className="signup-placeholder" name="phone" id="itemstatus" value={foods.itemstatus} onChange={e => setFoods({ ...foods, itemstatus: e.target.value })}>
+                        <option value={true}>Enable</option>
+                        <option value={false}>Disable</option>
+                    </select>
+                </div>
+                <div>
+                    <button className='action-button-delete' onClick={handleDelete}>Delete</button>
                     <button className="login-button" type="submit">Save</button>
                 </div>
                 <br />

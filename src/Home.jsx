@@ -11,7 +11,7 @@ function Home({ cart, setCart, totalCount }) {
   useEffect(() => {
     const getFoods = async () => {
       try {
-        const res = await axios.get(`${apiLink}/api/menu-items`);
+        const res = await axios.get(`${apiLink}/api/menu-items/home`);
         console.log(res.data.data)
         setFoods(res.data.data)
       }

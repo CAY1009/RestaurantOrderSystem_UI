@@ -47,6 +47,7 @@ function MemberAdminFood() {
         <p>{foodItem.itemname}</p>
         <p>Description: {foodItem.description}</p>
         <p>Price: {foodItem.price}</p>
+        <p>Status: {foodItem.itemstatus == true ? "Enable" : "Disable" }</p>
       </div>
     </div>
   ));
@@ -60,8 +61,9 @@ function MemberAdminFood() {
           <Link to="/adminFood" className='admin-nav-food'>Food Menu</Link>
           <Link to="/adminCustomer" className='admin-nav'>Customers</Link>
           <Link to="/adminEmployee" className='admin-nav'>Employees</Link>
-        </div>
-        <br />
+          <Link to='./addFood' className="view-cart-pay-button">Add Food</Link>
+        </div>        
+        <br/>
         {AdminFoodList}
       </div>
     </>

@@ -16,10 +16,24 @@ function Signup() {
             alert("Passwords do not match.");
         }
         else {
-            axios.post(`${apiLink}/api/customers`,newCustomer)
-                .then(res => {
+            axios.post(`${apiLink}/api/customers`, newCustomer)
+                .then(async (res) => {
+                    // try to create auth entry using returned customer id
+                    const created = res?.data?.data || res?.data || {};
+                    const customerId = created.customerid || created.customerId || created.id;
+                    const password = document.getElementById("password").value;
+
+                    if (customerId) {
+                        try {
+                            await axios.post(`${apiLink}/api/auth`, { customerId, password });
+                        } catch (err) {
+                            console.error('Auth creation failed', err?.message || err);
+                            // continue even if auth creation failed
+                        }
+                    }
+
                     alert("Signed up successfully!")
-                    navigate('/')
+                    navigate('/login')
                 })
                 .catch(error => {
                     console.log(error.message)

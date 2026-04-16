@@ -1,25 +1,31 @@
+import axios from "axios";
 
 function Login(){
-    const loginEventHandler = (e) => {
+
+    const apiLink = 'http://localhost:3000';
+
+    const loginEventHandler = async (e) => {
         e.preventDefault();
-        // username 123456 to go to Admin page
-        if (document.getElementById("username").value === "123456") {
-            window.location.href = '/adminFood';            
-            alert("Login successful!");
-        } else {
-            alert("Sorry! You aren't a member. Please sign up!")
-            window.location.href = '/signup';
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        if (username == 'admin' && password == 'admin123!!!'){
+            window.location.href = '/adminFood';
         }
-        // will check credentials from Database here
-        /* 
-            if match {
-            Match found, redirect to Home page
-            window.location.href = '/home';
+        else {
+            try {
+                const res = await axios.post(`${apiLink}/api/auth/login`, { username, password });
+                if (res.data && res.data.success) {
+                    alert('Login successful!');
+                    window.location.href = '/';
+                } else {
+                    alert(res.data?.message || 'Login failed, please try again');
+                }
+            } catch (err) {
+                const msg = (err.response?.data?.message || err.messageLogin || 'Login failed');
+                console.log(msg);
+                alert(msg);
             }
-            else {
-            show ("Invalid username or password.");
-            }
-        */
+        }
     };
 
     return(
@@ -37,7 +43,7 @@ function Login(){
                     <button className="login-button" type="submit">Login</button>
                 </div>
             </form>
-        <p>Use username: 123456 / password 123 to access Food manage page. Will delete this later</p>
+        <p>admin username: admin / password: admin123!!!</p>
         </div>
     );
 }
